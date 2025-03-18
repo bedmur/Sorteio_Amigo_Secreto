@@ -1,0 +1,325 @@
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: black;
+    color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('assets/nuvem.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.titulo {
+    font-family: 'Playfair Display', serif;
+    color: black;
+    font-size: clamp(2.25rem, 6.5vw, 6rem);
+    text-align: center;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 1s forwards, pulse 2s infinite;
+}
+
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.header-banner {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 20px 0;
+    text-align: center;
+    color: black;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    background-color: #333333;
+    border-radius: 10px;
+    margin-top: 20px;
+    animation: slideUp 0.8s ease-out, fadeInFromLeft 1s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.botao-play-stop {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    border: none;
+    position: fixed;
+    bottom: 20px;
+}
+
+.botao-play-stop.play {
+    right: 20px;
+}
+
+.botao-play-stop.stop {
+    right: 100px;
+}
+
+.botao-adicionar, .botao-sorteio, .botao-resetar {
+    font-family: 'Playfair Display', sans-serif;
+    margin: 10px 5px;
+    width: 250px;
+    max-width: 100%;
+    font-size: 1.5rem;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button {
+    background-color: #b30000;
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    margin: 10px 5px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #8b0000;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+input[type="text"] {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #b30000;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', sans-serif;
+    margin: 10px 5px;
+    width: 100%;
+    max-width: 250px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #e60000;
+    box-shadow: 0 0 10px #e60000;
+    animation: shake 0.3s ease-out;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+input[type="text"]::placeholder {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 1.7rem;
+    color: #f2f2f2;
+}
+
+.lista-amigos {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    color: white;
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: fadeInList 1s ease forwards;
+}
+
+@keyframes fadeInList {
+    to {
+        opacity: 1;
+    }
+}
+
+.sorteado {
+    margin-top: 20px;
+    color: #e60000;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards, slideInUp 1s ease-in-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.texto-fixo {
+    color: #e60000;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.mostrar-mensagem {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nome-sorteado {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.nome-sorteado.mostrar-nome {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.erro-mensagem {
+    color: white;
+    font-size: 2.0rem;
+    margin-top: 20px;
+    display: none;
+    animation: shake 0.5s ease-out;
+}
+
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 2.5rem;
+    }
+
+    .botao-play-stop {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .main-content {
+        padding: 15px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .botao-adicionar, .botao-sorteio, .botao-resetar {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    input[type="text"], button {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 2rem;
+    }
+
+    .botao-play-stop {
+        font-size: 10px;
+        padding: 6px 12px;
+    }
+
+    .main-content {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .botao-adicionar, .botao-sorteio, .botao-resetar {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    input[type="text"], button {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Secreto</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <audio id="bg-audio" src="assets/tema.mp3" autoplay></audio>
+    <header class="header-banner">
+        <h1 class="titulo">...Amigo? Secreto?...</h1>
+    </header>
+    <button class="botao-play-stop play" onclick="tocarMusica()">Play</button>
+    <button class="botao-play-stop stop" onclick="pararMusica()">Stop</button>
+    <main class="main-content">
+
+        <section class="conteudo">
+            <div>
+                <input type="text" id="name" placeholder="Digite o participante">
+                <button class="botao-adicionar" onclick="adicionarAmigo()">Adicionar</button>
+            </div>
+            <div>
+                <button class="botao-sorteio" onclick="sortearAmigo()">Sortear Amigo</button>
+                <button class="botao-resetar" onclick="resetarTudo()">Resetar</button>
+            </div>
+            <p class="sorteado"></p>
+            <p class="erro-mensagem"></p>
+            <p>Total de Participantes: <span id="contador">0</span></p>
+            <ul id="lista" class="lista-amigos"></ul>
+        </section>
+    </main>
+    <script>
+        const audio = document.getElementById('bg-audio');
+
+      
+        function tocarMusica() {
+            audio.currentTime = 20;  
+            audio.play();            
+        }
+
+        
+        function pararMusica() {
+            audio.pause();           
+            audio.currentTime = 0;   
+        }
+
+        
+        window.onload = function () {
+            audio.currentTime = 20;  
+            audio.play();            
+        };
+    </script>
+
+    <script src="apps.js"></script>
+</body>
+
+</html>
